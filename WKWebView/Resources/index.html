@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+    <title>Webkit Media Permissions Test</title>
+</head>
+<body>
+<script>
+    function getDevices() {
+        var _ = navigator.mediaDevices.enumerateDevices().then((devices) => {
+            log(JSON.stringify(devices))
+        });
+    }
+
+    function getUserMedia() {
+        var _ = navigator.mediaDevices.getUserMedia({video: true, audio: true}).then((_) => {
+            log("Got User Media stream!!!")
+        }).catch((error) => {
+            log("Failed to get User Media")
+        });
+    }
+</script>
+</body>
+</html>
